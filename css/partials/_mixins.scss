@@ -1,0 +1,114 @@
+
+/* Hide */
+@mixin visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+
+/*Media queries & breakpoints*/
+
+@mixin screen-large {
+  @media only screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin screen-med {
+  @media only screen and (max-width: 960px) {
+    @content;
+  }
+}
+
+@mixin screen-sm {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin screen-xs {
+  @media only screen and (max-width: 400px) {
+    @content;
+  }
+}
+
+
+// Vendor Prefixes //
+
+@mixin rounded($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}   
+
+@mixin transition ($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+@mixin box-sizing {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@mixin transform-center {
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    -ms-transform: translateY(-50%) translateX(-50%);
+    left:50%;
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes $animation-name {
+        @content;
+    }
+    @-moz-keyframes $animation-name {
+        @content;
+    }  
+    @-ms-keyframes $animation-name {
+        @content;
+    }
+    @-o-keyframes $animation-name {
+        @content;
+    }  
+    @keyframes $animation-name {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -ms-animation: #{$str};
+    -o-animation: #{$str};
+    animation: #{$str};      
+}
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin appearance($args) {
+    -webkit-appearance: $args;
+    -moz-appearance: $args;
+    appearance: $args; 
+}
+
+@mixin user-select($args) {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}

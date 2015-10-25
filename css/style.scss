@@ -1,18 +1,21 @@
-@import 'variables';
-@import 'mixins';
- 
+@import 'partials/variables';
+@import 'partials/mixins';
+@import 'partials/navs'; 
  
 /* 
+The Bolt framework by Darren Hoyt
+
 TABLE OF CONTENTS
   
   HTML & Resets
   Animations
   Grid & Structure
-  Navigation
   Content Styles 
   Post Styles
   Form Elements
   Footer
+
+
 */
    
     
@@ -26,17 +29,22 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
  
 *, *:before, *:after {
-    box-sizing: border-box; 
+    @include box-sizing; 
 }
 
 article,aside,figure,figure img,figcaption,hgroup,footer,header,nav,section,video,object {
     display:block
 }
 
+html {
+    font-size: 62.5%; 
+}
+
 body {
     color: $text-color; 
     -ms-text-size-adjust:100%;
-    -webkit-text-size-adjust:100%   
+    -webkit-text-size-adjust:100%;
+    font-size: 1.5rem; 
 }
 
 body, input, textarea, select, button {
@@ -58,7 +66,7 @@ a:hover, :focus, li:hover, img:hover, input:hover {
 p { 
     margin: $vert-rhythm;
     line-height:$leading;
-}
+} 
 
 hr {
     display: block;
@@ -91,9 +99,9 @@ h1, h2, h3, h4, h5 {
 // Animations
 // =======================================================================  
 
-@include keyframes(slide-down) {
-    0% {}
-    100% {}
+@include keyframes(fadeIn) {
+    0% {opacity:0}
+    100% {opacity:1}
 }
 
     
@@ -107,21 +115,7 @@ h1, h2, h3, h4, h5 {
     clear: both;
     margin:0 auto;
     
-    .col-content {
-        width:$eightcol;
-        float:left;
-    }
-    
-    .col-sidebar {
-        width:$fourcol;
-        float:right;
-    }
-    
-    .full-width {
-        width:$twelvecol;
-    }       
-    
-    .onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol {
+    .col {
         float: left;
         min-height: 1px;
     }
@@ -135,12 +129,21 @@ h1, h2, h3, h4, h5 {
     float:right
 }
 
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
 
-
-// =======================================================================
-// Navigation
-// =======================================================================
-
+header {
+    .bar {
+        background:#111;
+        @extend .clearfix;
+        height:57px;
+    }
+}
 
 
     
@@ -163,31 +166,30 @@ h1, h2, h3, h4, h5 {
 // Post Styles
 // =======================================================================
 
-
 article {
     
     h1 {
-        font-size:2.4em;
+        font-size:2.4rem;
     }
     
     h2 {
-        font-size:2em;
+        font-size:2rem;
     }
             
     h3 {
-        font-size:1.8em;
+        font-size:1.8rem;
     }
     
     h4 {
-        font-size:1.4em;
+        font-size:1.4rem;
     }
     
     h5 {
-        font-size: 1em
+        font-size: 1rem
     }
     
     h6 {
-        font-size: .8em;
+        font-size: .8rem;
     }
    
    blockquote {
@@ -223,7 +225,6 @@ article {
 
     dl dt {
         font-weight: bold;
-        font-size:1.2em;
     }
     
     dl dd {
@@ -257,21 +258,19 @@ input:focus, textarea:focus {
     border-color:#333;
 }
 
-a.button, a.button:visited, .button, input[type=submit] {
+a.btn, a.btn:visited, .btn, input[type=submit] {
     background:#333;
     color:#fff;
     padding: 12px 32px;
     text-transform:uppercase;
     letter-spacing:.01em;
-    border-radius:3px;
+    border-radius:2px;
     cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none; 
+    @include appearance(none);
     border:none;
 }
 
-a.button:hover, a.button:active, .button:hover, .button:active, input[type=submit]:hover, input[type=submit]:focus {
+a.btn:hover, a.btn:active, .btn:hover, .btn:active, input[type=submit]:hover, input[type=submit]:focus {
     outline:none;
     background:#000;
 }
@@ -283,6 +282,7 @@ a.button:hover, a.button:active, .button:hover, .button:active, input[type=submi
 // Footer
 // =======================================================================
          
- 
+ footer {
+ }
     
     

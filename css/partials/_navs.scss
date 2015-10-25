@@ -1,0 +1,153 @@
+// Transformicons
+.tcon {
+    @include appearance(none);
+    border: none;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    @include transition(0.3s);
+    @include user-select(none);
+    background: transparent;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    > * {
+        display:block;
+    }
+    &:hover,&:focus {
+        outline: none; 
+    }
+    &::-moz-focus-inner {
+        border:0;
+    } 
+}
+
+.tcon-menu__lines {
+    display: inline-block;
+    height: 5.71429px;
+    width: 40px;
+    @include transition(0.3s);
+    background: #FFF;
+    position: relative; 
+}
+
+.tcon-menu__lines::before, .tcon-menu__lines::after {
+    display: inline-block;
+    height: 5.71429px;
+    width: 40px;
+    @include transition(0.3s);
+    background: #FFF;
+    content: '';
+    position: absolute;
+    left: 0;
+    -webkit-transform-origin: 2.85714px center;
+    transform-origin: 2.85714px center;
+    width: 100%; 
+}
+
+.tcon-menu__lines::before {
+    top: 10px; 
+}
+
+.tcon-menu__lines::after {
+    top: -10px; 
+}
+
+.tcon-transform .tcon-menu__lines {
+    transform: scale3d(0.8, 0.8, 0.8); 
+}
+
+.tcon-menu--xcross {
+    width: auto; 
+}
+
+.tcon-menu--xcross.tcon-transform .tcon-menu__lines {
+    background: transparent; 
+}
+
+.tcon-menu--xcross.tcon-transform .tcon-menu__lines::before,
+.tcon-menu--xcross.tcon-transform .tcon-menu__lines::after {
+    transform-origin: 50% 50%;
+    top: 0;
+    width: 40px; 
+}
+
+.tcon-menu--xcross.tcon-transform .tcon-menu__lines::before {
+    transform: rotate3d(0, 0, 1, 45deg); 
+}
+
+.tcon-menu--xcross.tcon-transform .tcon-menu__lines::after {
+    transform: rotate3d(0, 0, 1, -45deg); 
+}
+
+.tcon-visuallyhidden {
+    border: 0;
+    @include visuallyhidden;
+    &:active,&:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto; 
+    } 
+}
+
+
+.menu {
+    float:right;
+    @include screen-sm {
+        float:none;
+        position: absolute;
+        width: 100%;
+        background-color: #111;
+        left: 0;
+        top: 0;
+    }
+    ul {
+        @include screen-sm {
+            display:none;
+            padding:20px 0;
+        }
+    }
+    li {
+        display: inline-block;
+        padding:10px;
+        font: {
+            weight:900;
+            size:.85em;
+        }
+        a,a:visited {
+            color:#fff;
+            text-decoration: none;
+            @include screen-sm {
+                color:$highlight;
+                display: inline-block;
+                margin-bottom: 5px;
+            }
+        }
+        @include screen-sm {
+            width:100%;
+            display: block;
+            padding:0 !important;
+        }
+    }
+    .tcon {
+        display:none;
+        position:absolute;
+        top:8px;
+        right:15px;
+        @include screen-sm {
+            display:block;
+        }
+    }
+}
+
