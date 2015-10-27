@@ -35,9 +35,9 @@
   .tcon::-moz-focus-inner {
     border: 0; }
 
-.tcon-menu__lines {
+.tcon-menu__lines, .tcon-menu__lines::before, .tcon-menu__lines::after {
   display: inline-block;
-  height: 5.71429px;
+  height: 3px;
   width: 40px;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
@@ -48,15 +48,6 @@
   position: relative; }
 
 .tcon-menu__lines::before, .tcon-menu__lines::after {
-  display: inline-block;
-  height: 5.71429px;
-  width: 40px;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-  background: #FFF;
   content: '';
   position: absolute;
   left: 0;

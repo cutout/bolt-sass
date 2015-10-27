@@ -30,9 +30,9 @@
     } 
 }
 
-.tcon-menu__lines {
+.tcon-menu__lines,.tcon-menu__lines::before,.tcon-menu__lines::after {
     display: inline-block;
-    height: 5.71429px;
+    height: 3px;
     width: 40px;
     @include transition(0.3s);
     background: #FFF;
@@ -40,11 +40,6 @@
 }
 
 .tcon-menu__lines::before, .tcon-menu__lines::after {
-    display: inline-block;
-    height: 5.71429px;
-    width: 40px;
-    @include transition(0.3s);
-    background: #FFF;
     content: '';
     position: absolute;
     left: 0;
