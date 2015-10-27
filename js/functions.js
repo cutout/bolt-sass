@@ -6,7 +6,7 @@ setTimeout(function(){$("body").addClass("loaded")},3000);
 transformicons.add('.tcon');
 
 
-  // Smooth Scroll to top
+// Smooth Scroll to top
   $('a[href*=#]:not([href=#])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
@@ -22,26 +22,38 @@ transformicons.add('.tcon');
 });
 
 
-//Fade on scroll
+// Fade on scroll
 $(window).on('scroll',function(){
   $("").css("opacity", 1 - $(window).scrollTop() / 880);
 });
+
+
+//Responsive trigger transform
 $('.menu .tcon').on('click',function(){
   if($(this).hasClass('tcon-transform')){
-    // Closing - Do whatever here to hide the menu
     $('.menu ul').slideUp();
   } else {
-    // Opening - Do whatever here to show the menu
     $('.menu ul').slideDown();
   }
 });
 
 
-//Check for responsive
+// Check for responsive
 mediaCheck({
   media: '(max-width: 768px)',
   exit: function(){
     $('.menu .tcon').removeClass('tcon-transform');
     $('.menu ul').removeAttr('style');
+  }
+});
+
+
+// Change class on scroll
+$(window).scroll(function() {    
+  var scroll = $(window).scrollTop();
+  if (scroll >= 150) {
+      $(".navbar").addClass("nav-smaller");
+  } else {
+      $(".navbar").removeClass("nav-smaller");
   }
 });
