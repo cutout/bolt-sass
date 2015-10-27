@@ -102,6 +102,15 @@
 }
 
 
+
+//Primary Nav Menu
+
+.bar {
+    background:#111;
+    @extend .clearfix;
+    height:57px;
+}
+
 .menu {
     float:right;
     @include screen-sm {
@@ -120,7 +129,6 @@
     }
     li {
         display: inline-block;
-        padding:10px;
         font: {
             weight:900;
             size:.85em;
@@ -131,7 +139,8 @@
             @include screen-sm {
                 color:$highlight;
                 display: inline-block;
-                margin-bottom: 5px;
+                padding:10px 15px;
+                font-size:1.5rem;
             }
         }
         @include screen-sm {
