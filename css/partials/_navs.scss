@@ -13,12 +13,12 @@
     -ms-flex-align: center;
     align-items: center;
     height: 40px;
-    width: 40px;
     @include transition(0.3s);
     @include user-select(none);
     background: transparent;
     outline: none;
     -webkit-tap-highlight-color: transparent;
+    padding:0;
     > * {
         display:block;
     }
@@ -30,10 +30,13 @@
     } 
 }
 
+.tcon,.tcon-menu__lines,.tcon-menu__lines::before,.tcon-menu__lines::after {
+    width:40px;
+}
+
 .tcon-menu__lines,.tcon-menu__lines::before,.tcon-menu__lines::after {
     display: inline-block;
     height: 3px;
-    width: 40px;
     @include transition(0.3s);
     background: #FFF;
     position: relative; 
@@ -117,6 +120,7 @@
         top: 0;
     }
     ul {
+        margin-right:15px;
         @include screen-sm {
             display:none;
             padding:20px 0;
@@ -128,20 +132,23 @@
             weight:900;
             size:.85em;
         }
+        padding:20px 0;
+        margin-left:10px;
         a,a:visited {
             color:#fff;
             text-decoration: none;
             @include screen-sm {
                 color:$highlight;
                 display: inline-block;
-                padding:10px 15px;
                 font-size:1.5rem;
+                padding:10px 15px;
             }
         }
         @include screen-sm {
             width:100%;
             display: block;
-            padding:0 !important;
+            padding:0;
+            margin:0;
         }
     }
     .tcon {

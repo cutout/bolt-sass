@@ -16,7 +16,6 @@
   -ms-flex-align: center;
   align-items: center;
   height: 40px;
-  width: 40px;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -ms-transition: 0.3s;
@@ -27,7 +26,8 @@
   -ms-user-select: none;
   background: transparent;
   outline: none;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: transparent;
+  padding: 0; }
   .tcon > * {
     display: block; }
   .tcon:hover, .tcon:focus {
@@ -35,10 +35,12 @@
   .tcon::-moz-focus-inner {
     border: 0; }
 
+.tcon, .tcon-menu__lines, .tcon-menu__lines::before, .tcon-menu__lines::after {
+  width: 40px; }
+
 .tcon-menu__lines, .tcon-menu__lines::before, .tcon-menu__lines::after {
   display: inline-block;
   height: 3px;
-  width: 40px;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -ms-transition: 0.3s;
@@ -114,14 +116,18 @@
       background-color: #111;
       left: 0;
       top: 0; } }
-  @media only screen and (max-width: 768px) {
-    .menu ul {
-      display: none;
-      padding: 20px 0; } }
+  .menu ul {
+    margin-right: 15px; }
+    @media only screen and (max-width: 768px) {
+      .menu ul {
+        display: none;
+        padding: 20px 0; } }
   .menu li {
     display: inline-block;
     font-weight: 900;
-    font-size: .85em; }
+    font-size: .85em;
+    padding: 20px 0;
+    margin-left: 10px; }
     .menu li a, .menu li a:visited {
       color: #fff;
       text-decoration: none; }
@@ -129,13 +135,14 @@
         .menu li a, .menu li a:visited {
           color: #fdcf54;
           display: inline-block;
-          padding: 10px 15px;
-          font-size: 1.5rem; } }
+          font-size: 1.5rem;
+          padding: 10px 15px; } }
     @media only screen and (max-width: 768px) {
       .menu li {
         width: 100%;
         display: block;
-        padding: 0 !important; } }
+        padding: 0;
+        margin: 0; } }
   .menu .tcon {
     display: none;
     position: absolute;
@@ -305,7 +312,6 @@ article pre, article code {
 article code {
   background: #f3f3f3;
   padding: 8px;
-  color: #505050;
   display: block; }
 article ul li, article ol li {
   margin: 0 0 10px 48px;
@@ -314,7 +320,8 @@ article ul li, article ol li {
 input[type=text], input[type=email], input[type=password], textarea {
   border-style: 1px solid #555;
   padding: 8px;
-  color: #111; }
+  color: #111;
+  -webkit-appearance: none; }
 
 textarea {
   width: 100%; }
@@ -322,7 +329,7 @@ textarea {
 input:focus, textarea:focus {
   border-color: #333; }
 
-a.btn, a.btn:visited, .btn, input[type=submit] {
+.btn, button, input[type=submit] {
   background: #333;
   color: #fff;
   padding: 12px 32px;
@@ -334,10 +341,6 @@ a.btn, a.btn:visited, .btn, input[type=submit] {
   -moz-appearance: none;
   appearance: none;
   border: none; }
-
-a.btn:hover, a.btn:active, .btn:hover, .btn:active, input[type=submit]:hover, input[type=submit]:focus {
-  outline: none;
-  background: #000; }
 
 @-webkit-keyframes $animation-name {
   0% {
