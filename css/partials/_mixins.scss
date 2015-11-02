@@ -1,4 +1,4 @@
-/*Media queries & breakpoints*/
+// Media queries & breakpoints //
 
 @mixin screen-large {
   @media only screen and (max-width: $content-width) {
@@ -25,7 +25,37 @@
 }
 
 
-// Vendor Prefixes //
+// Animations //
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+
+
+
+// Misc Vendor Prefixes //
 
 @mixin transition ($args...) {
     -webkit-transition: $args;
@@ -39,39 +69,6 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-}
-
-@mixin transform-center {
-    transform: translateY(-50%) translateX(-50%);
-    -webkit-transform: translateY(-50%) translateX(-50%);
-    -ms-transform: translateY(-50%) translateX(-50%);
-    left:50%;
-}
-
-@mixin keyframes($animation-name) {
-    @-webkit-keyframes $animation-name {
-        @content;
-    }
-    @-moz-keyframes $animation-name {
-        @content;
-    }  
-    @-ms-keyframes $animation-name {
-        @content;
-    }
-    @-o-keyframes $animation-name {
-        @content;
-    }  
-    @keyframes $animation-name {
-        @content;
-    }
-}
-
-@mixin animation($str) {
-    -webkit-animation: #{$str};
-    -moz-animation: #{$str};
-    -ms-animation: #{$str};
-    -o-animation: #{$str};
-    animation: #{$str};      
 }
 
 @mixin opacity($opacity) {
@@ -93,8 +90,7 @@
 }
 
 
-
-/* Hide */
+// Hide //
 
 @mixin visuallyhidden {
   margin: -1px;
@@ -105,4 +101,33 @@
   clip: rect(0 0 0 0);
   clip: rect(0, 0, 0, 0);
   position: absolute;
+}
+
+
+// Type //
+
+@mixin tuning {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+@mixin small-label {
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  @include tuning;
+  font: {
+    weight:600;
+    size:1.1rem;
+  }
+}
+
+
+// Positioning //
+
+@mixin screen-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
 }
